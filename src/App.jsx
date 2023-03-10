@@ -1,4 +1,5 @@
-import axios from 'axios'
+// import axios from 'axios'
+import api from './axios/api'
 import React, { useEffect, useState } from 'react'
 import CounterToolkit from './components/CounterToolkit'
 
@@ -13,7 +14,8 @@ function App() {
   const fetchTodos = async () => {
     // 그러나 서버로부터 받아오는 시간이 있기 때문에, await를 사용하지 않으면, 콘솔에 값이 기록되지 않을 것입니다. 
     // 그러기에, 값을 할당 받을 때까지 기다려달다는 await를 통해서 원하는 값에 접근할 수 있게 됩니다. 기다렷!!
-    const {data} = await axios.get('http://localhost:4000/todos');
+    // const {data} = await axios.get('http://localhost:4000/todos');
+    const {data} = await api.get("/todos");
     // console.log('data', data)
     setTodos(data);
   };
@@ -26,17 +28,17 @@ function App() {
   const SumbintFunc = async (e) => {
     e.preventDefault();
     // input의 값 DB로 저장하기 post
-    axios.post('http://localhost:4000/todos', inputValuse);
+    api.post("/todos", inputValuse);
     setInputValue([...todos, inputValuse])
     fetchTodos();
   } 
   const onDeleteButtonHandler =  async (id) => {
-    axios.delete(`http://localhost:4000/todos/${id}`)
+    api.delete(`/todos/${id}`)
     setTodos(todos.filter(el => el.id !== id))
   }
 
   const onUpdateButtonHandler= async () => {
-    axios.patch(`http://localhost:4000/todos/${targerId}`, {
+    api.patch(`/todos/${targerId}`, {
       title:contents
     })
     setTodos(todos.map(el =>{
@@ -67,7 +69,7 @@ function App() {
                 onChange={(e)=> setInputValue({
                   title: e.target.value
                 })}/>
-        <button>추가하기</button>
+        <button onSubmit={SumbintFunc}>추가하기</button>
       </form>
     </>
     {/* 내용입력공간 */}
