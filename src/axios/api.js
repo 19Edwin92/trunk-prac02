@@ -1,9 +1,9 @@
 import axios from "axios";
 
-// axios를 통해서 가공해봅시다.
+// axios를 통해서 가공해봅시다. 새로운 인스턴스를 생성합니다. baseURL 기본 URL을 입력해야 하는데, 환경변수를 가져옵시다. 
 const instance = axios.create({
   baseURL:process.env.REACT_APP_SERVER_URL,
-  timeout: 1,
+  // timeout: 1,
   // timeout 몇초까지 기다렸다고 응답을 받지 못하면 오류를 발생시킬꺼야
   // 밀리세컨드 1 말도 안되는 숫자이기에 오류가 발생될 것입니다. 
 });

@@ -14,8 +14,9 @@ function CounterToolkit() {
       <p>현재 카운터의 숫자</p>
       {counter.number}</div>
     <div>
-      <button onClick={onPlusButtonClickHandler}>더하기</button>
-      <button onClick={onMinusButtonClickHandler}>더하기</button>
+      <button onClick={onPlusButtonClickHandler}>더하기</button> : 23/3/11 Thunk(setTimeout 3s) 로 업그레이드 됨
+      <br/>
+      <button onClick={onMinusButtonClickHandler}>빼기</button> : 23/3/11 Thunk(setTimeout 3s) 로 업그레이드 됨
     </div>
     </>
   )
