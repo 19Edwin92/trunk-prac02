@@ -1,8 +1,8 @@
 // json-server 열기 : yarn json-server --watch db.json --port 4000 
 // import axios from 'axios'
-import api from './axios/api'
+import api from '../axios/api'
 import React, { useEffect, useState } from 'react'
-import CounterToolkit from './components/CounterToolkit'
+import CounterToolkit from '../components/CounterToolkit'
 
 function App() {
   const [todos, setTodos] = useState(null)
@@ -58,6 +58,8 @@ function App() {
       }
     }))
   }
+
+  
 
   return (
     <>
